@@ -1,3 +1,43 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
+
+#main-container
+  position: absolute
+  top: 50px
+  left: 0
+  right: 0
+  bottom: 5px
+
+table.tasks-board
+  height: 100%
+  width: 100%
+  border: 1px solid #DDDDDD
+
+  th.main-table-header
+    line-height: 50px
+    text-align: center
+    font-size: 25px
+    width: 25%
+    height: 30px
+    border: 1px solid #DDDDDD
+    background-color: #F5F5F5
+    
+    .add-button
+      background-image: url('plus-icon.png')
+      width: 25px
+      height: 25px
+      display: inline-block
+      background-size: 25px 25px
+      background-repeat: no-repeat
+      margin-top: 11px
+      float: right
+      margin-right: 5px
+
+  td
+    border: 1px solid #DDDDDD
+    border-right: 1px dashed #DDDDDD
+    border-left: 1.5px dashed #DDDDDD
+
+  td:hover
+    background-color: #F7f7f9

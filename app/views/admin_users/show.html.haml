@@ -1,0 +1,18 @@
+.hero-unit
+  %h1= @user.username
+  %p= @user.email
+
+  %br
+
+  .show-actions
+    - if current_user.is_admin
+      = link_to(admin_users_path, class: 'btn btn-info') do
+        %i.icon-th-list.icon-white
+        Users list
+      = link_to(edit_admin_user_path(@user), class: 'btn btn-primary') do
+        %i.icon-pencil.icon-white
+        Edit
+    = link_to(root_url, class: 'btn btn-success') do
+      %i.icon-home.icon-white
+      Tasks manager
+  %p Here goes the user's tasks

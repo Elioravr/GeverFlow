@@ -1,2 +1,14 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+- if user_signed_in?
+  %table.tasks-board
+    %tr.headers
+      = table_header 'To-do', '#'
+      = table_header 'Do today', '#'
+      = table_header 'In progress', '#'
+      = table_header 'Done', '#'
+    %tr.content
+      = tasks_layout 'to-do'
+      = tasks_layout 'do-today'
+      = tasks_layout 'in-progress'
+      = tasks_layout 'done'
+- else 
+  = render :partial => "layouts/guest"

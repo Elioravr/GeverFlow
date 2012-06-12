@@ -1,0 +1,31 @@
+%h1 Users list
+
+%br
+
+%table.table.table-striped.table-bordered.admin-users-table
+  %tr
+    %th Username
+    %th Email
+    %th.center-content Admin?
+    %th.center-content What would you like to do?
+  - @users.each do |user|
+    %tr
+      %td 
+        = link_to "#{user.username} #{'(you)' if current_user == user}", admin_user_path(user)
+      %td= user.email
+      %td.center-content= "#{user.is_admin ? 'Yes' : 'No'}"
+      %td.center-content
+        -#= link_to(admin_user_path(user), class: "btn btn-mini btn-info") do
+          -#%i.icon-eye-open.icon-white
+        - if current_user == user
+          You can't edit your details here.
+        - else
+          = link_to(edit_admin_user_path(user), class: "btn btn-mini btn-primary") do
+            %i.icon-pencil.icon-white
+          = link_to(admin_user_path(user), :confirm => 'Are you sure?', :method => :delete, class: "btn btn-mini btn-danger") do
+            %i.icon-trash.icon-white
+                
+
+%br
+
+= link_to "Create new user", new_admin_user_path, class: 'btn btn-primary'

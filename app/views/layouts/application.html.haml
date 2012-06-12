@@ -5,4 +5,46 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
 %body
-  = yield
+  .navbar
+    .navbar-inner
+      .container
+        %a.brand{ href: root_url } GeverFlow
+        %ul.nav
+          %li.dropdown
+            %a.dropdown-toggle{ href: '#', 'data-toggle' => "dropdown" }
+              %span.Board-dropdown-title Boards
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{href:'#'} 
+                  %i.icon-tasks
+                  My board           
+        - if user_signed_in? and current_user.is_admin
+          = render :partial => "layouts/admin_menu"
+        %ul.nav.pull-right
+          - if user_signed_in?
+            %li
+              %span#signed-in-span
+                %i.icon-user.icon-white
+                = "Signed in as a #{current_user.username}"
+            %li.divider-vertical
+            %li
+              = link_to "Sign Out", destroy_user_session_path, :method => :delete
+          - else
+            %li
+              %a{href: new_user_session_path}
+                %i.icon-home.icon-white
+                Login
+            %li.divider-vertical
+            %li
+              %a{href: new_user_registration_path}
+                %i.icon-user.icon-white
+                Sign in
+
+
+  #main-container.container
+    - unless notice.nil?
+      %p.alert.alert-success#notice= notice
+    - unless alert.nil?
+      %p.alert.alert-error#alert= alert
+    = yield
