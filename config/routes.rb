@@ -1,7 +1,10 @@
 GeverFlow::Application.routes.draw do
+
   devise_for :users
   
   resources :admin_users
+  
+  resources :user_groups
   
   root to: "home#index"
 

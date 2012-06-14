@@ -29,7 +29,9 @@
                 = "Signed in as a #{current_user.username}"
             %li.divider-vertical
             %li
-              = link_to "Sign Out", destroy_user_session_path, :method => :delete
+              = link_to(destroy_user_session_path, :method => :delete) do
+                %i.icon-share-alt.icon-white
+                Sign Out
           - else
             %li
               %a{href: new_user_session_path}

@@ -1,0 +1,18 @@
+%h1 Groups list
+
+%table.table.table-bordered.table-striped.group-table
+  %tr
+    %th Group name
+    %th.center-content What would you like to do?
+
+  - @user_groups.each do |group|
+    %tr
+      %td= link_to group.group_name, user_group_path(group)
+      %td.center-content
+        = link_to(edit_user_group_path(group), class: 'btn btn-mini btn-primary') do
+          %i.icon-pencil.icon-white
+        = link_to(group, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger') do
+          %i.icon-trash.icon-white
+%br
+
+= link_to 'New User group', new_user_group_path, class: 'btn btn-primary'

@@ -1,0 +1,10 @@
+= simple_form_for(@user_group) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :group_name, :required => true
+    = f.association :users, :input_html => { class: 'users-multiselect' }
+    
+
+  .form-actions
+    = f.button :submit

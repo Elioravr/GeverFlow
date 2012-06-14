@@ -12,13 +12,10 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require chosen-jquery
+#= require bootstrap.js
 #= require bootstrap.js
 #= require_tree .
 
-#$(document).ready ->
-  #$('.dropdown-menu li').click ->
-    #linkText = $(this).children('a').text()
-    #console.log linkText
-    ##if linkText != "Create new board"
-    #$('.board-dropdown-title').text(linkText)
-
+$('document').ready ->
+  $('.users-multiselect, .user-group-multiselect').chosen()

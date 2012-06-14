@@ -1,0 +1,21 @@
+.hero-unit
+  %h1= @user_group.group_name
+
+  %br
+
+  .show-actions
+    - if current_user.is_admin
+      = link_to(user_groups_path, class: 'btn btn-info') do
+        %i.icon-th-list.icon-white
+        User groups list
+      = link_to(edit_user_group_path(@user), class: 'btn btn-primary') do
+        %i.icon-pencil.icon-white
+        Edit
+    = link_to(root_url, class: 'btn btn-success') do
+      %i.icon-home.icon-white
+      Tasks manager
+  
+  %p Users:
+  - @users = @user_group.users
+  - @can_edit = false
+  =render :partial => 'admin_users/users_list'
