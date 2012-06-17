@@ -13,8 +13,6 @@
       %td.center-content= "#{user.is_admin ? 'Yes' : 'No'}"
       - if @can_edit
         %td.center-content
-          -#= link_to(admin_user_path(user), class: "btn btn-mini btn-info") do
-            -#%i.icon-eye-open.icon-white
           - if current_user == user
             You can't edit your details here.
           - else

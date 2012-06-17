@@ -1,0 +1,16 @@
+.hero-unit
+  %h1= "Welcome #{current_user.username}"
+  
+  - @boards = current_user.boards
+  -#- current_user.user_groups.each do |group|
+    -#- @boards += group.boards
+  - if @boards.empty?
+    %p
+      You have no boards to work with.
+      Go to your admin, and tell him he's sucks
+  - else
+    %p Please choose a board:
+
+    %br
+
+    = render :partial => "boards/list_of_boards"

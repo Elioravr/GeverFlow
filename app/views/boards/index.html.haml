@@ -1,0 +1,10 @@
+%h1 Listing boards
+
+- if @boards.empty?
+  There aren't boards.
+- else
+  = render :partial => 'boards/list_of_boards'
+
+%br
+
+= link_to 'New Board', new_board_path, class: "btn btn-primary"

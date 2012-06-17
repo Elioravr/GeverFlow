@@ -1,0 +1,14 @@
+%ul.nav
+  %li.dropdown
+    %a.dropdown-toggle{ href: '#', 'data-toggle' => "dropdown" }
+      %span.Board-dropdown-title Boards
+      %b.caret
+    %ul.dropdown-menu
+      - if current_user.boards.empty?
+        %li.group-name No boards for you
+      - else
+        - current_user.user_groups.each do |group|
+          %li.group-name= group.group_name
+          - group.boards.each do |board|
+            - @board = board
+            = render :partial => "layouts/board_link"

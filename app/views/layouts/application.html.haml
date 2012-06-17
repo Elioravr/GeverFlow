@@ -9,18 +9,10 @@
     .navbar-inner
       .container
         %a.brand{ href: root_url } GeverFlow
-        %ul.nav
-          %li.dropdown
-            %a.dropdown-toggle{ href: '#', 'data-toggle' => "dropdown" }
-              %span.Board-dropdown-title Boards
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{href:'#'} 
-                  %i.icon-tasks
-                  My board           
-        - if user_signed_in? and current_user.is_admin
-          = render :partial => "layouts/admin_menu"
+        - if user_signed_in?
+          = render :partial => "layouts/board_menu" 
+          - if current_user.is_admin
+            = render :partial => "layouts/admin_menu"
         %ul.nav.pull-right
           - if user_signed_in?
             %li

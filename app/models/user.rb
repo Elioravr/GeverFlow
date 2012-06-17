@@ -14,4 +14,13 @@ class User < ActiveRecord::Base
   def to_s
     "#{username}, #{email}#{' (admin)' if is_admin}"
   end
+
+  def boards
+    @boards = []
+    user_groups.each do |group|
+      @boards += group.boards
+    end
+
+    @boards
+  end
 end

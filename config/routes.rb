@@ -1,5 +1,7 @@
 GeverFlow::Application.routes.draw do
 
+  resources :boards
+
   devise_for :users
   
   resources :admin_users

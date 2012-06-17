@@ -18,4 +18,4 @@
 #= require_tree .
 
 $('document').ready ->
-  $('.users-multiselect, .user-group-multiselect').chosen()
+  $('.users-multiselect, .user-group-multiselect, .user-group-select').chosen()

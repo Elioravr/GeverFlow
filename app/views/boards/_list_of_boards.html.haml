@@ -1,0 +1,15 @@
+%table.table.table-bordered.table-striped.board-table
+  %tr
+    %th Name
+    %th User group
+    %th.center-content What would you like to do?
+
+  - @boards.each do |board|
+    %tr
+      %td= link_to board.name, board_path(board)
+      %td= board.user_group.group_name
+      %td.center-content
+        = link_to(edit_board_path(board), class: 'btn btn-mini btn-primary') do
+          %i.icon-pencil.icon-white
+        = link_to(board, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger') do
+          %i.icon-trash.icon-white

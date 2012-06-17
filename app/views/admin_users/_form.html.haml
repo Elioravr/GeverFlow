@@ -1,13 +1,15 @@
 = simple_form_for @user, html: { :class => 'form-horizontal' }, 
   url: @url do |f|
-  = f.input :username
-  = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
-  = f.association :user_groups, :input_html => { class: 'user-group-multiselect' }
-  = f.input :is_admin, as: :radio_buttons
+  
+  .form-inputs
+    = f.input :username
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+    = f.association :user_groups, :input_html => { class: 'user-group-multiselect' }
+    = f.input :is_admin, as: :radio_buttons
 
-  .actions
+  .form-actions
     = link_to(admin_users_path, class: 'btn btn-info') do
       %i.icon-th-list.icon-white
       Users list

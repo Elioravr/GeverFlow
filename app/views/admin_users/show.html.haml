@@ -1,10 +1,21 @@
 .hero-unit
   %h1= @user.username
   %p= "#{@user.email}#{", Admin" if @user.is_admin}#{" (you)" if current_user == @user}"
-  %p
-    Group(s):
-    - @user.user_groups.each do |group|
-      = link_to group.group_name, user_group_path(group)
+  - if @user.user_groups.empty?
+    %p User have no groups or boards.
+  - else
+    %p
+      Group(s):
+      %br
+      - @user.user_groups.each do |group|
+        = link_to group.group_name, user_group_path(group)
+        %br
+    %p
+      Board(s):
+      %br
+      - @user.boards.each do |board|
+        = link_to board.name, board_path(board)
+        %br
 
   %br
 
