@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614080900) do
+ActiveRecord::Schema.define(:version => 20120807120321) do
 
   create_table "boards", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,44 @@ ActiveRecord::Schema.define(:version => 20120614080900) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "columns", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "board_id"
+    t.boolean  "group_by_date"
+  end
+
+  create_table "subtasks", :force => true do |t|
+    t.string   "content"
+    t.integer  "task_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "is_done"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "time_spent"
+    t.integer  "time_estimated"
+    t.integer  "user_id"
+    t.integer  "subtask_id"
+    t.integer  "comment_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "column_id"
+  end
+
+  add_index "tasks", ["column_id"], :name => "index_tasks_on_column_id"
+
+  create_table "tasks_users", :id => false, :force => true do |t|
+    t.integer "user_id", :null => false
+    t.integer "task_id", :null => false
+  end
+
+  add_index "tasks_users", ["user_id", "task_id"], :name => "index_tasks_users_on_user_id_and_task_id", :unique => true
 
   create_table "user_groups", :force => true do |t|
     t.string   "group_name"

@@ -22,8 +22,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'rspec-rails'
-gem 'haml-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
 
@@ -31,6 +29,33 @@ gem 'devise'
 gem 'debugger'
 
 gem 'chosen-rails'
+
+gem 'backbone-on-rails'
+
+gem 'haml_coffee_assets'
+gem 'execjs'
+gem 'compass-rails'
+
+gem 'debugger'
+gem 'jquery-ui-rails'
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy' # required in order to use 'save_and_open_page'
+  gem 'poltergeist'
+end
+
+group :deveplopment, :test do
+  gem 'rspec-rails'
+  gem 'haml-rails'
+  gem 'shoulda-matchers'
+  gem 'pry'
+  gem 'spork-rails'
+  gem 'fabrication'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

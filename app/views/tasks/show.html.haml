@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @task.title
+%p
+  %b Description:
+  = @task.description
+%p
+  %b Time spent:
+  = @task.time_spent
+%p
+  %b Time estimated:
+  = @task.time_estimated
+%p
+  %b User:
+  = @task.user_id
+%p
+  %b Tag:
+  = @task.tag_id
+%p
+  %b Subtask:
+  = @task.subtask_id
+%p
+  %b Comment:
+  = @task.comment_id
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', tasks_path

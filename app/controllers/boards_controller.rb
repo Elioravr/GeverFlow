@@ -13,7 +13,9 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
+    @is_board = true
     @board = Board.find(params[:id])
+    @tasks = @board.tasks.select('tasks.*, users.username').joins('LEFT OUTER JOIN users ON users.id = tasks.user_id')
 
     respond_to do |format|
       format.html # show.html.erb

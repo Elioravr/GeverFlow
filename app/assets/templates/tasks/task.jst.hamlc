@@ -1,0 +1,43 @@
+.controllers
+  %a.remove-task-button{ href: '#', data: {task_id: @task.id}}
+    %i.icon-remove
+  %a.edit-task-button{ href: '#', data: {task_id: @task.id} }
+    %i.icon-edit
+  %a.work-on-task-button{ href: '#', data: {task_id: @task.id} }
+    %i.icon-play-circle
+
+%h2
+  %span= @task.title
+  -#- if @task.description isnt ""
+  %a.show-discription-button{ href: '#', title: "Open" }
+    %i.icon-chevron-down
+  %a.hide-discription-button{ href: '#', title: "Close" }
+    %i.icon-chevron-up
+- if @task.description isnt ""
+  %p.task-description
+    - lines = @task.description.split("\n")
+    - for line in lines
+      = line
+      %br
+
+.task-subtasks-list
+  .subtasks-list
+  %input.new-subtask-content{name: "Subtask"}= "Subtask"
+  %a{ href: '#', title: "add-subtask" }
+    %i.icon-plus
+
+.task-footer
+  - @task.time_spent = 0 if @task.time_spent is null
+  - @task.time_estimated = 0 if @task.time_estimated is null
+  - if @task.time_spent.toString() isnt "0" or @task.time_estimated.toString() isnt "0"
+    .time-spent
+      - time = ""
+      - time += @task.time_spent if @task.time_spent isnt 0
+      - time += "/" if time isnt "" and @task.time_estimated isnt 0
+      - time += @task.time_estimated if @task.time_estimated isnt 0
+      - time += "min"
+      = time
+  - if @task.user?
+    .username-field
+      %i.icon-user
+      %a{href: "/admin_users/#{@task.user.id}", data: {user_id: @task.user.id}}= @task.user.username

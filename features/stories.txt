@@ -1,0 +1,2 @@
+As a user I want to add subtasks to a task
+As a user I want to delete subtasks from a task

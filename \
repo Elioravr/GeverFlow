@@ -1,0 +1,29 @@
+%table.tasks-board#tasks-board{data: {tasks: @tasks.to_json(only: [:name])}}
+  %tr.headers
+    - if @board.columns.empty?
+      - @board.set_dufault_columns
+    - for column in @board.columns
+      = table_header column.name, '#new-task', column.id
+  %tr.content
+    - for column in @board.columns
+      = tasks_layout column.name, column.id, column.group_by_date
+
+#timer-layout
+  %a.button.stop-timer-button{href: '#'}
+    %i.icon-stop.icon-white
+    Stop Timer
+  
+  .timer
+    %span.time-left 00:00
+  %span.working-on#timer-task-name
+
+.modal.hide.fade#new-task
+  .modal-header
+    %button.close{ type: 'button', 'data-dismiss' => 'modal' } x
+    %h3 Add new task
+  %p.alert.alert-error#add-task-modal-error
+  .modal-body
+    = render :partial => 'tasks/form'
+  .modal-footer
+    %a.btn.btn-primary#save-task-button Save
+    %a.btn.btn-danger{ "data-dismiss" => 'modal' } Close

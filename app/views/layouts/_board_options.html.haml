@@ -1,0 +1,14 @@
+%ul.nav
+  %li.dropdown
+    %a.dropdown-toggle{ href: '#', 'data-toggle' => "dropdown" }
+      %span.Board-dropdown-title Tasks filter
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a.all-tasks-button{ href: '#' } 
+          %i.icon-list-alt
+          All Tasks
+      %li
+        %a.only-my-task-button{ href: '#', data: { current_user_id: current_user.id } }            
+          %i.icon-th-list
+          Tasks Assigned To Me

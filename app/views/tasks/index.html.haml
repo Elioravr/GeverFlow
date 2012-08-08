@@ -1,0 +1,33 @@
+%h1 Listing tasks
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Time spent
+    %th Time estimated
+    %th User
+    %th Tag
+    %th Subtask
+    %th Comment
+    %th
+    %th
+    %th
+
+  - @tasks.each do |task|
+    %tr
+      %td= task.title
+      %td= task.description
+      %td= task.time_spent
+      %td= task.time_estimated
+      %td= task.user_id
+      %td= task.tag_id
+      %td= task.subtask_id
+      %td= task.comment_id
+      %td= link_to 'Show', task
+      %td= link_to 'Edit', edit_task_path(task)
+      %td= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Task', new_task_path

@@ -35,4 +35,12 @@
     = link_to(root_url, class: 'btn btn-success') do
       %i.icon-home.icon-white
       Tasks manager
-  %p Here goes the user's tasks
+  -#%p Here goes the user's tasks
+  -#%table.table.table-striped
+    -#%tr
+      -#%th Task name
+
+    -#- @user.tasks.each do |task|
+      -#%tr
+        -#%td= task.title
+  

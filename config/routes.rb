@@ -1,4 +1,12 @@
 GeverFlow::Application.routes.draw do
+  
+  scope "api" do
+    resources :tasks
+      #member do
+        #post 'add_subtask'
+      #end
+    resources :subtasks
+  end
 
   resources :boards
 

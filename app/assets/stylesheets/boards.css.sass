@@ -7,4 +7,175 @@ table.board-table
   margin: auto
 
   td
-    width: 33.3%
+    width: 33.3
+
+@import "compass"
+td.column
+  vertical-align: top
+  
+  .task-filter-title
+    color: black
+    margin-left: 7px
+    margin-top: 10px
+    border-bottom: 1px solid
+    width: 96%
+    opacity: 0.3
+    cursor: pointer
+
+  .task-filter-content
+    display: none
+  
+  .today-container .task-filter-content
+    display: block
+
+.task-container
+  +clearfix
+  background-color: #FFF9D7
+  border: 1px solid #FED22F
+  border-radius: 5px
+  width: 91%
+  margin: auto
+  margin-top: 10px
+  padding-left: 2%
+  padding-right: 2%
+  cursor: move
+  margin-bottom: 3px
+  
+  h2
+    font-size: 15px
+    line-height: 24px
+
+    .hide-discription-button
+      display: none
+
+  .controllers
+    height: 100%
+    float: right
+    margin-top: 3px
+    direction: rtl
+
+  .task-footer
+    
+    .time-spent
+      float: right
+      font-size: 13px
+    
+    .username-field
+      font-size: 13px
+      margin-top: 2px
+      margin-bottom: 5px
+    
+  .task-description
+    margin-bottom: 3px
+    display: none
+  
+  .task-subtasks-list
+    display: none
+
+    .add-subtask
+      background-image: url('plus-icon.png')
+      background-size: 15px 15px
+      background-repeat: no-repeat
+      display: inline-block
+      height: 15px
+      width: 15px
+
+    .subtasks-list
+      font-size: 13px
+      margin-bottom: 4px
+      margin-right: 5px
+      margin-left: 5px
+
+      li.subtask
+        list-style-type: none
+        font-weight: bold
+        width: 100%
+        border-radius: 5px
+
+      .done
+        text-decoration: line-through
+        opacity: 0.6
+
+      li.subtask:hover
+        background-color: #FEF3AD
+
+      input
+        margin-top: 0
+        float: left
+        margin-top: 2px
+        margin-right: 3px
+
+      .subtask-content
+        cursor: pointer
+        display: inline-block
+        width: 88%
+
+      .remove-subtask
+        float: right
+        font-weight: normal
+        display: inline-block
+
+      label
+        display: inline-block
+
+    .subtask-input-before-writing
+      color: gray
+
+    .subtask-input-after-writing
+      color: black
+
+.task-container-heb
+  direction: rtl
+
+  .controllers
+    float: left
+    direction: ltr
+
+  .task-footer
+    .time-spent
+      float: left
+      margin-left: 0px
+      margin-right: 3px
+
+  .subtasks-list
+    .subtask
+      .remove-subtask
+        float: left
+      
+      input
+        float: right
+        margin-right: 0
+        margin-left: 3px
+
+.chosen-task
+  border: 1px solid #4A99FF
+  background-color: #C3DDFF
+
+#add-task-modal-error
+  display: none
+
+.column-in
+  background-color: #D9DFF0
+
+#timer-layout
+  background-color: black
+  border-radius: 40px
+  position: fixed
+  left: 10px
+  bottom: 10px
+  color: white
+  width: 200px
+  height: 16px
+  opacity: 0.8
+  text-align: center
+  z-index: 1000
+  height: 92
+  display: none
+  cursor: move
+
+  .timer
+    line-height: 56px
+    font-size: 60px
+  
+  .button
+    color: white

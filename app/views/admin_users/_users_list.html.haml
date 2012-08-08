@@ -8,7 +8,7 @@
   - @users.each do |user|
     %tr
       %td 
-        = link_to "#{user.username} #{'(you)' if current_user == user}", admin_user_path(user)
+        = link_to "#{user.username} #{'(you)' if current_user == user}", admin_user_path(user.id)
       %td= user.email
       %td.center-content= "#{user.is_admin ? 'Yes' : 'No'}"
       - if @can_edit

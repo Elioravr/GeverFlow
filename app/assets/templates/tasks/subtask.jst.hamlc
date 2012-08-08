@@ -1,0 +1,7 @@
+-#- checkbox_id = "subtask-checkbox-#{@subtask.id}"
+%input.check-subtask{ type: 'checkbox' }
+.subtask-content
+  = @subtask.content
+-#%span.subtask-contet= @subtask.content
+%a.remove-subtask{href: '#', title: "remove-subtask"}
+  %i.icon-remove

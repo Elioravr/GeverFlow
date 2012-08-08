@@ -1,0 +1,5 @@
+- for task in @tasks
+  .task-container
+    %a.remove-task-button{ href: '#', data: {task_id: task.id} }
+    %h2= task.attributes.title
+    %p= task.attributes.description

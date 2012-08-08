@@ -38,4 +38,8 @@ GeverFlow::Application.configure do
   config.sass.preferred_syntax = :sass
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  if defined? ::HamlCoffeeAssets
+     config.hamlcoffee.awesome = true
+  end
 end
