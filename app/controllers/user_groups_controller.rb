@@ -3,6 +3,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups.json
   def index
     @user_groups = UserGroup.all
+    authorize! :see_all, @user_groups
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups/1.json
   def show
     @user_group = UserGroup.find(params[:id])
+    authorize! :watch, @user_group
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups/new.json
   def new
     @user_group = UserGroup.new
+    authorize! :create, @user_group
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +38,14 @@ class UserGroupsController < ApplicationController
   # GET /user_groups/1/edit
   def edit
     @user_group = UserGroup.find(params[:id])
+    authorize! :edit, @user_group
   end
 
   # POST /user_groups
   # POST /user_groups.json
   def create
     @user_group = UserGroup.new(params[:user_group])
+    authorize! :create, @user_group
 
     respond_to do |format|
       if @user_group.save
@@ -57,6 +62,7 @@ class UserGroupsController < ApplicationController
   # PUT /user_groups/1.json
   def update
     @user_group = UserGroup.find(params[:id])
+    authorize! :update, @user_group
 
     respond_to do |format|
       if @user_group.update_attributes(params[:user_group])
@@ -73,6 +79,7 @@ class UserGroupsController < ApplicationController
   # DELETE /user_groups/1.json
   def destroy
     @user_group = UserGroup.find(params[:id])
+    authorize! :delete, @user_group
     @user_group.destroy
 
     respond_to do |format|

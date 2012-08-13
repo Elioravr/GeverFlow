@@ -39,6 +39,8 @@ gem 'compass-rails'
 gem 'debugger'
 gem 'jquery-ui-rails'
 
+gem 'cancan'
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'

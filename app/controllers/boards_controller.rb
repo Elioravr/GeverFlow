@@ -3,6 +3,7 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.all
+    authorize! :see_all, @boards
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class BoardsController < ApplicationController
   def show
     @is_board = true
     @board = Board.find(params[:id])
+    authorize! :watch, @board
     @tasks = @board.tasks.select('tasks.*, users.username').joins('LEFT OUTER JOIN users ON users.id = tasks.user_id')
 
     respond_to do |format|
@@ -27,6 +29,7 @@ class BoardsController < ApplicationController
   # GET /boards/new.json
   def new
     @board = Board.new
+    authorize! :create, @board
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +40,14 @@ class BoardsController < ApplicationController
   # GET /boards/1/edit
   def edit
     @board = Board.find(params[:id])
+    authorize! :edit, @board
   end
 
   # POST /boards
   # POST /boards.json
   def create
     @board = Board.new(params[:board])
+    authorize! :create, @board
 
     respond_to do |format|
       if @board.save
@@ -59,6 +64,7 @@ class BoardsController < ApplicationController
   # PUT /boards/1.json
   def update
     @board = Board.find(params[:id])
+    authorize! :update, @board
 
     respond_to do |format|
       if @board.update_attributes(params[:board])
@@ -75,6 +81,7 @@ class BoardsController < ApplicationController
   # DELETE /boards/1.json
   def destroy
     @board = Board.find(params[:id])
+    authorize! :delete, @board
     @board.destroy
 
     respond_to do |format|

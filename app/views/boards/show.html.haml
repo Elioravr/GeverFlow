@@ -27,3 +27,21 @@
   .modal-footer
     %a.btn.btn-primary#save-task-button Save
     %a.btn.btn-danger{ "data-dismiss" => 'modal' } Close
+
+.modal.hide.fade#keyboard-shortcuts
+  -#%h1.shortcuts-title Shortcuts:
+  .modal-header
+    %button.close{ type: 'button', 'data-dismiss' => 'modal' } x
+    %h3 Keyboard Shortcuts
+  .modal-body
+    = render :partial => 'tasks/shortcut', :locals => { :key => "?", :key_description => "Show all keyboard shortcuts" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "n", :key_description => "Create new task" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "m", :key_description => "Show only my tasks" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "a", :key_description => "Show all tasks" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "hjkl / Arrows", :key_description => "Move between tasks and columns" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "e", :key_description => "Edit chosen task" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "o", :key_description => "Open / Close current task" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "ENTER", :key_description => "Start working" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "s", :key_description => "Stop timer" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "delete", :key_description => "Delete task" }
+    = render :partial => 'tasks/shortcut', :locals => { :key => "ESC", :key_description => "Quit chosen task" }

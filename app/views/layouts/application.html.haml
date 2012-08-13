@@ -10,7 +10,8 @@
         %a.brand{ href: root_url } GeverFlow
         - if user_signed_in?
           = render :partial => "layouts/board_menu" 
-          - if current_user.is_admin
+          -#- if current_user.is_admin
+          - if can? :manage, :all
             = render :partial => "layouts/admin_menu"
           - if @is_board
             = render :partial => "layouts/board_options"
@@ -44,6 +45,8 @@
       %p.alert.alert-success#notice= notice
     - unless alert.nil?
       %p.alert.alert-error#alert= alert
+    - if alert.nil? and flash[:error].present?
+      %p.alert.alert-error#alert= flash[:error]
     = yield
 
   = javascript_include_tag "application"

@@ -1,9 +1,9 @@
 .controllers
-  %a.remove-task-button{ href: '#', data: {task_id: @task.id}}
+  %a.remove-task-button{ href: '#', title: 'Remove', data: {task_id: @task.id}}
     %i.icon-remove
-  %a.edit-task-button{ href: '#', data: {task_id: @task.id} }
+  %a.edit-task-button{ href: '#', title: 'Edit', data: {task_id: @task.id} }
     %i.icon-edit
-  %a.work-on-task-button{ href: '#', data: {task_id: @task.id} }
+  %a.work-on-task-button{ href: '#', title: 'Start Timer', data: {task_id: @task.id} }
     %i.icon-play-circle
 
 %h2

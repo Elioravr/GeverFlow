@@ -20,7 +20,7 @@
   %br
 
   .show-actions
-    - if current_user.is_admin
+    - if can? :manage, @user
       = link_to(admin_users_path, class: 'btn btn-info') do
         %i.icon-th-list.icon-white
         Users list
