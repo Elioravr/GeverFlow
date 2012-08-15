@@ -18,7 +18,6 @@ class GeverFlow.Views.TasksBoard extends Backbone.View
   
   events:
     'click .add-button': 'add'
-    #'click .remove-task-button': 'remove'
     'click .edit-task-button': 'edit'
     'drop .column': 'taskDropped'
   
@@ -284,7 +283,6 @@ class GeverFlow.Views.TasksBoard extends Backbone.View
     task = @collection.get(id)
     @taskView.setEditor(task)
     $('#new-task').modal('show')
-
 
   getColumnId: (button) ->
     $(button).data('column-id')

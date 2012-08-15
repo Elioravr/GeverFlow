@@ -6,6 +6,16 @@ $(document).ready ->
   $('.add-button').click ->
     columnId = $(this).data('columnId')
     $('#task_column_id').val(columnId).trigger('liszt:updated')
+  
+  $('#trash-can').droppable
+    hoverClass: 'trash-can-hover'
+    #over: ->
+      #$(this).addClass('trash-can-hover', 300)
+    #out: ->
+      #$(this).removeClass('trash-can-hover', 300)
+    accept: (draggedElement) ->
+      draggedElement = $(draggedElement)
+      return draggedElement.hasClass('task-container')
 
   $('.column').droppable
     tolerance: 'pointer'
