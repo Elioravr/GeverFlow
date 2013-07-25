@@ -5,8 +5,6 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,7 +24,6 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 
 gem 'devise'
-gem 'debugger'
 
 gem 'chosen-rails'
 
@@ -40,6 +37,8 @@ gem 'debugger'
 gem 'jquery-ui-rails'
 
 gem 'cancan'
+
+gem 'heroku'
 
 group :test do
   gem 'cucumber-rails', require: false
@@ -56,6 +55,11 @@ group :deveplopment, :test do
   gem 'pry'
   gem 'spork-rails'
   gem 'fabrication'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password
